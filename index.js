@@ -1,30 +1,24 @@
-const http = require("http")
+import express from 'express'; 
+import path from "path"; 
 
-// console.log(http)
+const app = express();  
 
-const server = http.createServer((req, res) => {
-    // console.log(req.url);
-    // res.end("<h1>This is Amar hehe</h1>"); 
+app.get("/", (req, res) => {
+    // res.json({
+    //     success: true, 
+    //     products: []
+    // })
 
+    console.log(path.resolve())
+    const pathlocation = path.resolve(); 
 
-    // navigation of the pages
-    if(req.url==="/about") {
-        res.end("<h1>About page</h1>")
-    }
-    else if(req.url==="/profile") {
-        res.end("<h1>Profile page</h1>")
-    }
-    else if(req.url==="/") {
-        res.end("<h1>Home page</h1>")
-    }
-    else if(req.url==="/else") {
-        res.end("<h1>Else hehe page</h1>")
-    }
-    else {
-        res.end("<h1>page not found</h1>")
-    }
+    console.log(path.join(pathlocation, "./index.html"));
+    // res.sendFile(path.join(pathlocation, "./index.html")); 
+
+    
+
 })
 
-server.listen(5000, () => { 
+app.listen(5000, () => {
     console.log("server is working");
 })
