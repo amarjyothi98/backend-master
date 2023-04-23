@@ -1,5 +1,6 @@
 import express from 'express'; 
 import path from "path"; 
+import Mongoose from 'mongoose';
 
 const app = express();  
 
